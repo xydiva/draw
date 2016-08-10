@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="user-scalable=no width=device-width">
+    <title>七夕画爱心</title>
+    <style type="text/css" media="screen">
+        .hide {
+            display: none;
+        }
+
+        #canvas, #redrawCanvas {
+            -webkit-user-select: none;
+            touch-action: none;
+            -webkit-user-drag: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        #imgWrap {
+            position: fixed;
+            width: 80%;
+            height: 100%;
+            top: 0;
+            left: 10%;
+            background-color: white;
+            text-align: center;
+        }
+
+        #imgWrap img {
+            width: 100%;
+        }
+         #imgWrap p {
+             margin: 0;
+         }
+
+        #dlBar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        #dlBar img {
+            display: block;
+            width: 100%;
+        }
+
+        .fakeloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            background-color: white !important
+        }
+
+        .spinner3 {
+            position: absolute;
+            left: 50%;
+            margin-left: -20px;
+            margin-top: -20px;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            -webkit-animation: rotate 2s infinite linear;
+            animation: rotate 2s infinite linear
+        }
+
+        .dot1, .dot2 {
+            width: 60%;
+            height: 60%;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            background-color: red;
+            border-radius: 100%;
+            -webkit-animation: bounce 2s infinite ease-in-out;
+            animation: bounce 2s infinite ease-in-out
+        }
+
+        .dot2 {
+            top: auto;
+            bottom: 0;
+            -webkit-animation-delay: -1s;
+            animation-delay: -1s
+        }
+
+        @-webkit-keyframes rotate {
+            100% {
+                -webkit-transform: rotate(360deg)
+            }
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg)
+            }
+        }
+
+        @-webkit-keyframes bounce {
+            0%, 100% {
+                -webkit-transform: scale(0)
+            }
+
+            50% {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: scale(0);
+                -webkit-transform: scale(0)
+            }
+
+            50% {
+                transform: scale(1);
+                -webkit-transform: scale(1)
+            }
+        }
+    </style>
+    <script src="js/cookies.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/paper-full.min.js"></script>
+    <script src="js/jquery-qrcode.min.js"></script>
+    <script type="text/paperscript" canvas="canvas" src="js/heart.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?8d1ec6d63586b250e3cac6593f34c915";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<img src="images/again.png" id="retry" class="hide">
+<img src="images/againPress.png" id="retryInActive" class="hide">
+<img src="images/share.png" id="share" class="hide">
+<img src="images/sharePress.png" id="shareInActive" class="hide">
+
+<canvas id="canvas" resize="" stats="" hidpi="on" width="651" height="921"></canvas>
+<canvas id="redrawCanvas" class="hide" resize="" stats="" hidpi="on" height="921" style="position: absolute;top: 0;"></canvas>
+
+<div class="fakeloader hide" id="loading">
+    <div class="spinner3">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+</div>
+<div id="qrcode" class="hide"></div>
+<div id="imgWrap" class="hide"></div>
+<div id="dlBar" class="hide">
+    <a href="http://www.miaobo.me/adljump.php?tag=h7">
+        <img src="images/heart-bar.png"/>
+    </a>
+</div>
+
+<script>
+    var loading = true;
+</script>
+
+
+</body>
+</html>
